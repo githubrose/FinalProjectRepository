@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 public class GeneralUtilities {
 
@@ -45,6 +46,10 @@ public class GeneralUtilities {
 	}
 	public String getTheTitle(WebDriver driver) {
 		return driver.getTitle();
+	}
+	public void selectFromDropDown(WebElement element,int i) {
+		Select select = new Select(element);
+		select.selectByIndex(i);
 	}
 
 }

@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Cross Browser Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="Chrome Browser Test(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="executeClass.ExecuteManageUserPage">
+      <class name="executeClass.ExecuteLoginPage">
         <methods>
+          <include name="verifyUnsuccessfulLogin" invocation-numbers="0 1 2"/>
           <include name="afterMethod"/>
-          <include name="verifySuccessfullyLoggedOut"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- executeClass.ExecuteManageUserPage -->
+      </class> <!-- executeClass.ExecuteLoginPage -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Chrome Browser Test(failed) -->
+  <test thread-count="5" parallel="tests" name="Edge Browser Test(failed)">
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="executeClass.ExecuteLoginPage">
+        <methods>
+          <include name="verifyUnsuccessfulLogin"/>
+          <include name="afterMethod"/>
+          <include name="isRememberMeCheckBoxSelected"/>
+          <include name="verifyTheLoginPageWithURL"/>
+          <include name="verifySuccessfullLogin"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- executeClass.ExecuteLoginPage -->
+    </classes>
+  </test> <!-- Edge Browser Test(failed) -->
+</suite> <!-- Failed suite [Cross Browser Test Suite] -->

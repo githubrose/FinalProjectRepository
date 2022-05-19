@@ -30,7 +30,7 @@ public class ExecuteLoginPage extends BaseClass {
 		Assert.assertFalse(lp.rememberMeSelectedorNot());
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 3)
 	public void verifySuccessfullLogin() throws IOException {
 		lp = new LoginPage(driver);
 		lp.enterUserName(lp.readUserName(0, 1));
@@ -40,6 +40,18 @@ public class ExecuteLoginPage extends BaseClass {
 		String expectedTitle = "Dashboard | 7rmart supermarket";
 		String actualTitle = driver.getTitle();
 		Assert.assertEquals(actualTitle, expectedTitle);
+	}
+	@Test(priority=2,dataProvider="data-provider",dataProviderClass=DataProviderClass.class)
+	public void verifyUnsuccessfulLogin(String uName,String password) {
+		lp = new LoginPage(driver);
+		lp.enterUserName(uName);
+		lp.enterPassWord(password);
+		lp.clickRemeberMeCheckBox();
+		lp.clickSignInBtn();
+		String expectedTitle = "Dashboard | 7rmart supermarket";
+		String actualTitle = driver.getTitle();
+		Assert.assertEquals(actualTitle, expectedTitle);
+		
 	}
 
 }
