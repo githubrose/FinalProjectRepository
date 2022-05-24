@@ -4,20 +4,20 @@
 	<test name="Chrome Browser Test">
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-			<class name="executeClass.ExecuteLoginPage"></class>
-			<class name="executeClass.ExecuteDashBoardPage"></class>
+			 <class name="executeClass.ExecuteLoginPage"></class>
+			<!--<class name="executeClass.ExecuteDashBoardPage"></class>
 			<class name="executeClass.ExecuteExpenseCategoryPage"></class>
-			<class name="executeClass.ExecuteManageUserPage"></class>
+			<class name="executeClass.ExecuteManageUserPage"></class>-->
 
 		</classes>
 	</test>
 	<test name="Edge Browser Test">
 		<parameter name="browser" value="edge"></parameter>
 		<classes>
-			<class name="executeClass.ExecuteLoginPage"></class>
+			<!--<class name="executeClass.ExecuteLoginPage"></class>
 			<class name="executeClass.ExecuteDashBoardPage"></class>
 			<class name="executeClass.ExecuteExpenseCategoryPage"></class>
-			<class name="executeClass.ExecuteManageUserPage"></class>
+			<class name="executeClass.ExecuteManageUserPage"></class>-->
 
 		</classes>
 	</test>

@@ -19,8 +19,8 @@ public class ExecuteManageUserPage extends BaseClass {
 		lp.clickSignInBtn();
 		mu = new ManageUserPage(driver);
 		mu.clickOnManageUserLink();
-		String expectedResult = "http://groceryapp.uniqassosiates.com/admin/list-user";
-		String actualResult = mu.getTheURLOfManageUserPage();
+		String expectedResult = "List Users";
+		String actualResult = mu.getTheLabelOfManageUserPage();
 		Assert.assertEquals(actualResult, expectedResult);
 
 	}

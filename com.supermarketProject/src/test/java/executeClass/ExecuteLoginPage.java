@@ -17,10 +17,11 @@ public class ExecuteLoginPage extends BaseClass {
 	LoginPage lp ;
 
 	@Test(priority = 0)
-	public void verifyTheLoginPageWithURL() {
-		String expectedURL = "http://groceryapp.uniqassosiates.com/admin/login";
-		String actualURL = driver.getCurrentUrl();
-		Assert.assertEquals(actualURL, expectedURL);
+	public void verifyTheLoginPageLogo() {
+		lp = new LoginPage(driver);
+		String expectedLogo= "7rmart supermarket";
+		String actualLogo = lp.getTheLoginPageLogo();
+		Assert.assertEquals(actualLogo, expectedLogo);
 	}
 
 	@Test(priority = 1)

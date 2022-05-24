@@ -13,7 +13,9 @@ import utilities.GeneralUtilities;
 public class LoginPage {
 	WebDriver driver;
 	GeneralUtilities gu = new GeneralUtilities();
-
+    
+	@FindBy(xpath = "//b[starts-with(text(),'7rmart')]")
+	WebElement loginPageLogo;
 	@FindBy(name = "username")
 	WebElement userName;
 	@FindBy(name = "password")
@@ -27,6 +29,9 @@ public class LoginPage {
 	{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+	}
+	public String getTheLoginPageLogo() {
+		return gu.getTextFromTheElement(loginPageLogo);
 	}
 	public void enterUserName(String uName) {
 		gu.enterTextBoxValue(userName, uName);

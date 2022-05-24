@@ -15,6 +15,8 @@ public class ManageUserPage {
 
 	@FindBy(xpath = "//p[text()='Manage Users']")
 	WebElement manageUserLink;
+	@FindBy(xpath = "//h1[@class='m-0 text-dark']")
+	WebElement listUserLabel;
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-primary']")
 	WebElement searchButton;
 	@FindBy(xpath = "(//input[@class='form-control'])[1]")
@@ -59,8 +61,8 @@ public class ManageUserPage {
 	public void clickOnManageUserLink() {
 		gu.clickAction(manageUserLink);
 	}
-	public String getTheURLOfManageUserPage() {
-		return gu.getTheURL(driver);
+	public String getTheLabelOfManageUserPage() {
+		return gu.getTextFromTheElement(listUserLabel);
 	}
 	public boolean verifySearchButtonOnIsEnabledOrNot() {
 		return gu.elementIsEnabled(searchButton);
