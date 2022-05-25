@@ -34,9 +34,6 @@ public class GeneralUtilities {
 		return element.getText();
 	}
 	
-	public void addImplicitWait(WebDriver driver) {
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-	}
 	public void scrollWindowToTheElement(WebDriver driver,WebElement element) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", element);

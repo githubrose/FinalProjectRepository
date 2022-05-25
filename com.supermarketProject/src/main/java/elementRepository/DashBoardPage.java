@@ -10,7 +10,9 @@ import utilities.GeneralUtilities;
 public class DashBoardPage {
 	WebDriver driver;
 	GeneralUtilities gu = new GeneralUtilities();
-		
+	
+	@FindBy(xpath = "//span[text()='7rmart supermarket']")	
+	WebElement logo;
 	@FindBy(xpath = "//p[contains(text(),' Manage Expense')]")
 	WebElement manageExpense;
 	@FindBy(xpath = "(//li[@class='nav-item'])[3]")
@@ -33,7 +35,9 @@ public class DashBoardPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
+	public String getTheLogo() {
+		return gu.getTextFromTheElement(logo);
+	}
 	public String getTheUseID() {
 		return gu.getTextFromTheElement(userID);
 	}

@@ -10,11 +10,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+
+import elementRepository.DashBoardPage;
 import elementRepository.LoginPage;
 
 public class ExecuteLoginPage extends BaseClass {
 
 	LoginPage lp ;
+	DashBoardPage dp;
 
 	@Test(priority = 0)
 	public void verifyTheLoginPageLogo() {
@@ -38,9 +41,10 @@ public class ExecuteLoginPage extends BaseClass {
 		lp.enterPassWord(lp.readPassWord(1, 1));
 		lp.clickRemeberMeCheckBox();
 		lp.clickSignInBtn();
-		String expectedTitle = "Dashboard | 7rmart supermarket";
-		String actualTitle = driver.getTitle();
-		Assert.assertEquals(actualTitle, expectedTitle);
+		dp = new DashBoardPage(driver);
+		String expectedLogo = "7rmart supermarket";
+		String actualLogo = dp.getTheLogo();
+		Assert.assertEquals(actualLogo, expectedLogo);
 	}
 	@Test(priority=2,dataProvider="data-provider",dataProviderClass=DataProviderClass.class)
 	public void verifyUnsuccessfulLogin(String uName,String password) {
@@ -49,9 +53,10 @@ public class ExecuteLoginPage extends BaseClass {
 		lp.enterPassWord(password);
 		lp.clickRemeberMeCheckBox();
 		lp.clickSignInBtn();
-		String expectedTitle = "Dashboard | 7rmart supermarket";
-		String actualTitle = driver.getTitle();
-		Assert.assertEquals(actualTitle, expectedTitle);
+		dp = new DashBoardPage(driver);
+		String expectedLogo = "7rmart supermarket";
+		String actualLogo = dp.getTheLogo();
+		Assert.assertEquals(actualLogo, expectedLogo);
 		
 	}
 
